@@ -4,7 +4,8 @@
 
 #　開発ログ
 NextRouter was not mounted エラーを回避
-'''javascript
+
+```javascript
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
@@ -48,5 +49,4 @@ return (
 
 );
 }
-
-'''
+```
