@@ -1,0 +1,25 @@
+export const projects: any = [
+  {
+    date: "24 March 2023",
+    description: "useState, useEffext, useContext編",
+    image: "Project1.svg",
+    images: ["FRdev-1.PNG"],
+    level: "easy",
+    long_description: "フルスタックアプリケーション開発の技術を発信しています。",
+    madeWith: "Next.js, TypeScript, Firebase",
+    name: "React Hooksをマスターしよう！！！",
+    slug: "reacthooks1",
+    url: "githubURL",
+  },
+  {
+    date: "88 Jan 2055",
+    description: "add description",
+    image: "FRdev-1.PNG",
+    images: ["FRdev-1.PNG"],
+    long_description: "add long description",
+    madeWith: "add lists programming framework",
+    name: "testProject2",
+    slug: "reacthooks2",
+    url: "testurl",
+  },
+];
