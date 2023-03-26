@@ -11,14 +11,20 @@
     "lint:style": "stylelint --ignore-path .gitignore './**/*.{css,scss}'",
     "lint:style:fix": "stylelint --ignore-path .gitignore --fix './**/*.{css,scss}'",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css,scss}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "seed": "ts-node --project tsconfig.local.json ./src/db/seed.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@mantine/carousel": "^6.0.4",
+    "@mantine/core": "^6.0.4",
+    "@mantine/hooks": "^6.0.4",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",
+    "@reduxjs/toolkit": "^1.9.3",
     "@stripe/firestore-stripe-payments": "^0.0.6",
+    "embla-carousel-react": "^7.1.0",
     "firebase": "^9.17.1",
     "firebase-admin": "^11.5.0",
     "framer-motion": "^10.8.5",
@@ -26,9 +32,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.7",
-    "react-icons": "^4.8.0"
+    "react-icons": "^4.8.0",
+    "redux": "^4.2.1"
   },
   "devDependencies": {
+    "@redux-devtools/core": "^3.13.1",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.10",
