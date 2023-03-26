@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
+
+import { projects } from "../data/projects";
+
+import { ReactHooks } from "./thumbnail/ReactHooks";
 
 const textUpAnimate = {
   onscreen: {
@@ -12,11 +15,26 @@ const textUpAnimate = {
 function ProjectComponent(props: any) {
   const { project, i } = props;
 
+  // projectの各コンポーネントを渡すための配列を作る
+  const slugs = Array.from<any, string>(projects, (project) => project.slug);
+  let component;
+  switch (project.slug) {
+    case slugs[0]:
+      component = <ReactHooks project={project} />;
+      break;
+    case slugs[1]:
+      component = <div>b test</div>;
+      break;
+    default:
+      //いずれも一致しなかった場合;
+      break;
+  }
+
   return (
     <Link href={`/projects/${project.slug.toLowerCase()}`}>
       <motion.div
         className={`font-apple easy-in cursor-pointer 
-       select-none items-center rounded-md bg-gradient-to-r p-2 shadow transition-all 
+       select-none items-center rounded-lg bg-gradient-to-r shadow-md transition-all 
        md:flex md:flex-row ${project.name.toLowerCase()}`}
         initial={{ opacity: 0, y: 50 * (i * 0.7) }}
         variants={textUpAnimate}
@@ -27,12 +45,13 @@ function ProjectComponent(props: any) {
         }}
         whileInView={{ transition: { delay: i * 0.4, duration: 0.3 }, y: 0 }}
       >
-        <div className="w-[100%] ">
+        <div className="w-[100%] rounded-lg bg-zinc-400">
           {/* ここにサムネイルを追加 */}
+          {component}
           {/* imageの場合は↓ */}
-          <Image alt="image" height={200} src={`/imgs/` + project.image} width={100} />
+          {/* <Image alt="image" height={200} src={`/imgs/` + project.image} width={100} /> */}
         </div>
-        <div className="w-full px-2 py-6">
+        <div className="w-full px-2 py-4">
           <div>Level:&nbsp;{project.level}</div>
           <div className="flex flex-row items-center justify-between pb-1">
             <h1 className="font-poppins text-[18px] uppercase">{project.name}</h1>

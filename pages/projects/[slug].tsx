@@ -11,7 +11,7 @@ function Project({ project }: { project: any }) {
   let component;
   switch (project.slug) {
     case "reacthooks1":
-      component = <ReactHooks />;
+      component = <ReactHooks project={project} />;
       break;
     case "reacthooks2dsd":
       component = <div>b test</div>;
