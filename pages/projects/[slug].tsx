@@ -61,7 +61,7 @@ function Project({ project }: { project: any }) {
           >
             <div className="flex justify-center">{/* <Slider images={project.images} /> */}</div>
 
-            <div className="tablet:px-6 mobile:px-6 mt-6 flex w-full flex-row justify-start px-12">
+            <div className="tablet:px-6 mobile:px-6 mt-6 flex w-full flex-row justify-start px-6">
               <div>
                 <b className="font-poppins">Description</b>
                 <div
@@ -77,7 +77,7 @@ function Project({ project }: { project: any }) {
             <div className="tablet:px-6 mobile:px-6 my-6 w-full px-12">
               {/* componentを追加していく */}
             </div>
-            <div className="tablet:px-6 mobile:px-6 my-6 flex w-full flex-row justify-start px-12">
+            <div className="tablet:px-6 my-6 flex w-full flex-row justify-start px-12 sm:px-6">
               <div>
                 <b className="font-poppins">Created on</b>
                 <p className="mt-1.5 ">{project.date}</p>

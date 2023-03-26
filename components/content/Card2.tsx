@@ -1,5 +1,5 @@
 import { Carousel } from "@mantine/carousel";
-import { createStyles, Card, Text, Group, Button, getStylesRef, rem } from "@mantine/core";
+import { createStyles, Card, Text, Group, getStylesRef, rem } from "@mantine/core";
 import { useReducer } from "react";
 import { useSelector } from "react-redux";
 
@@ -33,31 +33,30 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const images = [
-  "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-  "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-  "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-  "https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-  "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-];
-
 export function CarouselCard({ project }: { project: any }) {
   const { classes } = useStyles();
   const postList = useSelector((state: any) => state.posts.value);
-  const [state2, dispatch] = useReducer(postReducer2, INITIAL_STATE2);
-
-  const handleClick = () => {
-    dispatch({ type: TOGGLE_BOOLEAN });
-  };
+  console.log(postList);
+  // const slides = postList.map((item:any) => (
+  //   <Carousel.Slide key={item.name}>
+  //     <Items {...item} />
+  //   </Carousel.Slide>
+  // ));
 
   let component;
   switch (project.slug) {
     case "reacthooks1":
-      component = (
-        <Carousel.Slide>
-          <Items />
+      component = postList.map((item: any) => (
+        <Carousel.Slide key={item.name}>
+          <Items {...item} />
         </Carousel.Slide>
-      );
+      ));
+
+      // component = (
+      //   <Carousel.Slide>
+      //     <Items />
+      //   </Carousel.Slide>
+      // );
 
       break;
     case "reacthooks2dsd":
@@ -69,7 +68,7 @@ export function CarouselCard({ project }: { project: any }) {
   }
 
   return (
-    <Card padding="xl" radius="md" withBorder>
+    <Card radius="md">
       <Card.Section>
         <Carousel
           classNames={{
@@ -87,74 +86,72 @@ export function CarouselCard({ project }: { project: any }) {
   );
 }
 
-function Items({ handleClick1 }: any) {
-  const { classes } = useStyles();
-  const postList = useSelector((state: any) => state.posts.value);
-  console.log(postList);
+const useStyles2 = createStyles((theme) => ({
+  carousel: {
+    "&:hover": {
+      [`& .${getStylesRef("carouselControls")}`]: {
+        opacity: 1,
+      },
+    },
+  },
+}));
 
-  const [state2, dispatch] = useReducer(postReducer2, INITIAL_STATE2);
+function Items({ content, id, name, desc1, desc2 }: any) {
+  const { classes } = useStyles2();
+  // const postList = useSelector((state: any) => state.posts.value);
+  // console.log(postList);
 
-  console.log(state2.isBool);
-
-  // const booleanValue = useSelector((state: any) => state.isBool);
-  // console.log(booleanValue);
-
-  // const dispatch = useDispatch();
+  const [state, dispatch] = useReducer(postReducer2, INITIAL_STATE2);
+  const [state2, dispatch2] = useReducer(postReducer2, INITIAL_STATE2);
+  // console.log(state2.isBool);
 
   const handleClick = () => {
     dispatch({ type: TOGGLE_BOOLEAN });
   };
 
-  //
-
-  // const handleFetch = () => {
-  //   dispatch({ type: postActionKind.FETCH_START });
-
-  //   fetch("https://jsonplaceholder.typicode.com/posts/1")
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       dispatch({ payload: data, type: postActionKind.FETCH_SUCCESS });
-  //     })
-  //     .catch((err) => {
-  //       dispatch({ type: postActionKind.FETCH_ERROR });
-  //     });
-  // };
+  const handleClick2 = () => {
+    dispatch2({ type: TOGGLE_BOOLEAN });
+  };
 
   return (
-    <div>
-      <div>useState</div>
-      <div>
+    <div className="m-auto text-center">
+      <Text fw={600} fz="xl" pt={20}>
+        const [
+        <span className="cursor-pointer text-blue-500 hover:text-blue-800" onClick={handleClick}>
+          {name[1]}
+        </span>
+        ,{" "}
+        <span className="cursor-pointer text-blue-500 hover:text-blue-800" onClick={handleClick2}>
+          setState
+        </span>
+        ] = <span className="cursor-pointer text-blue-500 hover:text-blue-800">useState()</span>
+      </Text>
+
+      {/* <div>
         const [<span onClick={handleClick}>state</span>, <span>setState</span>] ={" "}
         <span>useState()</span>
-      </div>
-      {/* <div>this state: {state2.isBool ? <div>{postList[0].content}</div> : }</div> */}
+      </div> */}
       <Group mt="lg" position="apart">
-        <Text fw={500} fz="lg">
-          Forde, Norway
+        <Text fw={500} fz="lg" pl={10}>
+          説明
         </Text>
       </Group>
 
       <Text c="dimmed" fz="sm" mt="sm">
-        {state2.isBool ? <div>{postList[0].content}</div> : <div>OFF</div>}
-        {/* Relax, rejuvenate and unplug in this unique contemporary Birdbox. Feel close to nature in
-        ultimate comfort. Enjoy the view of the epic mountain range of Blegja and the Førdefjord. */}
+        {state.isBool ? (
+          <div>
+            {desc1.state}
+            {desc2.state}
+          </div>
+        ) : null}
+        {state2.isBool ? (
+          <div>
+            {desc1.setState}
+            {desc2.setState}
+          </div>
+        ) : null}
+        <p></p>
       </Text>
-
-      <Group mt="md" position="apart">
-        <div>
-          <Text className={classes.price} fw={500} fz="xl" span>
-            397$
-          </Text>
-          <Text c="dimmed" fz="sm" span>
-            {" "}
-            / night
-          </Text>
-        </div>
-
-        <Button radius="md">Book now</Button>
-      </Group>
     </div>
   );
 }
