@@ -2,31 +2,32 @@ export const PostsData = [
   {
     content: "useState",
     desc1: {
-      setState: "関数：",
-      state: "状態変数：",
-      useState: "フックス：",
+      a: "状態変数：",
+      b: "関数：",
+      c: "フックス：",
     },
     desc2: {
-      setState: "set〇〇と宣言する。イベント関数が呼ばれた際などでstateの状態を更新する。",
-      state: "setStateにより更新された値が代入されます。",
-      useState: "useState(初期値)と宣言する。()の初期値はstateに代入される。",
+      a: "setStateにより更新された値が代入されます。",
+      b: "set〇〇と宣言する。イベント関数が呼ばれた際などでstateの状態を更新する。",
+      c: "useState(初期値)と宣言する。()の初期値はstateに代入される。",
     },
     id: 1,
-    name: ["state", "setState", "useState()"],
+    name: ["state", "setState", "useState();"],
   },
   {
-    content: "ShinCodeさん分かりやすい",
+    content: "useEffect",
+    desc1: {
+      a: "アロー関数：",
+    },
+    desc2: {
+      a: "useEffrctの説明",
+    },
     id: 2,
-    name: "名無しさん",
+    name: ["useEffect(()=>{", "//実行したい処理", "},[]);"],
   },
   {
-    content: "Udemy受講してみようかな",
+    content: "useContext",
     id: 3,
     name: "駆け出しエンジニア",
-  },
-  {
-    content: "エンジニアのスタバ",
-    id: 4,
-    name: "スタックオーバーフローさん",
   },
 ];

@@ -103,6 +103,7 @@ function Items({ content, id, name, desc1, desc2 }: any) {
 
   const [state, dispatch] = useReducer(postReducer2, INITIAL_STATE2);
   const [state2, dispatch2] = useReducer(postReducer2, INITIAL_STATE2);
+  const [state3, dispatch3] = useReducer(postReducer2, INITIAL_STATE2);
   // console.log(state2.isBool);
 
   const handleClick = () => {
@@ -113,18 +114,45 @@ function Items({ content, id, name, desc1, desc2 }: any) {
     dispatch2({ type: TOGGLE_BOOLEAN });
   };
 
+  const handleClick3 = () => {
+    dispatch3({ type: TOGGLE_BOOLEAN });
+  };
+
   return (
-    <div className="m-auto text-center">
-      <Text fw={600} fz="xl" pt={20}>
-        const [
-        <span className="cursor-pointer text-blue-500 hover:text-blue-800" onClick={handleClick}>
-          {name[1]}
-        </span>
-        ,{" "}
-        <span className="cursor-pointer text-blue-500 hover:text-blue-800" onClick={handleClick2}>
-          setState
-        </span>
-        ] = <span className="cursor-pointer text-blue-500 hover:text-blue-800">useState()</span>
+    <div className="">
+      <Text fw={600} fz="lg" pt={20}>
+        {/* useStateについて */}
+        {id == 1 && (
+          <div className="text-cente mx-auto">
+            const [
+            <span
+              className="cursor-pointer border-b border-gray-500 text-blue-500 hover:text-blue-800"
+              onClick={handleClick}
+            >
+              {name[0]}
+            </span>
+            ,{" "}
+            <span
+              className="cursor-pointer border-b border-gray-500 text-blue-500 hover:text-blue-800"
+              onClick={handleClick2}
+            >
+              {name[1]}
+            </span>
+            ] ={" "}
+            <span
+              className="cursor-pointer border-b border-gray-500 text-blue-500 hover:text-blue-800"
+              onClick={handleClick3}
+            >
+              {name[2]}
+            </span>
+          </div>
+        )}
+
+        {/* useEffectについて */}
+        {id == 2 && <div onClick={handleClick}>useEffect</div>}
+
+        {/* useContextについて */}
+        {id == 3 && <div>useContext</div>}
       </Text>
 
       {/* <div>
@@ -132,25 +160,36 @@ function Items({ content, id, name, desc1, desc2 }: any) {
         <span>useState()</span>
       </div> */}
       <Group mt="lg" position="apart">
-        <Text fw={500} fz="lg" pl={10}>
-          説明
+        <Text fw={600} fz="xl">
+          <div className=" border-b-2 px-2">説明</div>
         </Text>
       </Group>
 
-      <Text c="dimmed" fz="sm" mt="sm">
+      <Text fz="sm" mt="lg">
+        {/* useStateについて */}
         {state.isBool ? (
           <div>
-            {desc1.state}
-            {desc2.state}
+            <div className="text-stone-500">{desc1.a}</div>
+            <div className=" text-blue-600">{desc2.a}</div>
           </div>
         ) : null}
         {state2.isBool ? (
           <div>
-            {desc1.setState}
-            {desc2.setState}
+            <div className="text-stone-500">{desc1.b}</div>
+            <div className=" text-blue-600">{desc2.b}</div>
           </div>
         ) : null}
-        <p></p>
+        {state3.isBool ? (
+          <div>
+            <div className="text-stone-500">{desc1.c}</div>
+            <div className=" text-blue-600">{desc2.c}</div>
+          </div>
+        ) : null}
+
+        {/* useEffectについて */}
+        {state || state2 || state3 ? <></> : null}
+
+        {/* useContextについて */}
       </Text>
     </div>
   );

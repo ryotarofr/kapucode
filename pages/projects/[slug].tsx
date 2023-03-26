@@ -63,13 +63,13 @@ function Project({ project }: { project: any }) {
 
             <div className="tablet:px-6 mobile:px-6 mt-6 flex w-full flex-row justify-start px-6">
               <div>
-                <b className="font-poppins">Description</b>
+                {/* <b className="font-poppins">Description</b>
                 <div
                   className="mt-1.5"
                   dangerouslySetInnerHTML={{
                     __html: project.long_description,
                   }}
-                />
+                /> */}
                 {component}
               </div>
             </div>
