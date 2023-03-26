@@ -2,9 +2,9 @@ export const PostsData = [
   {
     content: "useState",
     desc1: {
-      a: "状態変数：",
-      b: "関数：",
-      c: "フックス：",
+      a: "state：",
+      b: "setState：",
+      c: "useState()：",
     },
     desc2: {
       a: "setStateにより更新された値が代入されます。",
@@ -17,7 +17,7 @@ export const PostsData = [
   {
     content: "useEffect",
     desc1: {
-      a: "アロー関数：",
+      a: "useEffect：",
     },
     desc2: {
       a: "useEffrctの説明",
@@ -26,7 +26,7 @@ export const PostsData = [
     name: ["useEffect(()=>{", "//実行したい処理", "},[]);"],
   },
   {
-    content: "useContext",
+    content: "useContext：",
     id: 3,
     name: "駆け出しエンジニア",
   },
