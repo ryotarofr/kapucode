@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   if (!subscription) return <div className="text-red-600">サブスク登録必要</div>;
 
   return (
-    <div>
+    <div className="">
       <Header />
       <AllProjects />
     </div>
