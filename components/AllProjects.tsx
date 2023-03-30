@@ -54,7 +54,6 @@ function AllProjects() {
             </div>
           </div>
         </div>
-        {/* <StarsCanvas /> */}
       </div>
     </motion.div>
   );

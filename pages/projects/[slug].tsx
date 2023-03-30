@@ -29,8 +29,9 @@ function Project({ project }: { project: any }) {
                text-xl font-bold  "
         >
           <div
-            className=" tablet:rounded-none
-                     mobile:rounded-none mx-auto flex flex-row 
+            className="tablet:rounded-none
+            mobile:rounded-none
+                     mx-auto flex flex-row 
                items-center justify-between "
           >
             <div
@@ -50,7 +51,8 @@ function Project({ project }: { project: any }) {
         </div>
         <div
           className={`font-proxima
-                    tablet:rounded-none  mobile:rounded-none mx-auto flex 
+          tablet:rounded-none
+                    mobile:rounded-none  mx-auto flex 
                     flex-col
                      items-center bg-white
                      `}
@@ -61,7 +63,7 @@ function Project({ project }: { project: any }) {
           >
             <div className="flex justify-center">{/* <Slider images={project.images} /> */}</div>
 
-            <div className="tablet:px-6 mobile:px-6 mt-6 flex w-full flex-row justify-start px-6">
+            <div className="tablet:px-12 mobile:px-8 mx-auto mt-6 flex max-w-3xl justify-start px-6">
               <div>
                 {/* <b className="font-poppins">Description</b>
                 <div
@@ -70,12 +72,13 @@ function Project({ project }: { project: any }) {
                     __html: project.long_description,
                   }}
                 /> */}
-                {component}
+                {/* {component} */}
               </div>
             </div>
 
-            <div className="tablet:px-6 mobile:px-6 my-6 w-full px-12">
+            <div className="my-6 w-full">
               {/* componentを追加していく */}
+              {component}
             </div>
             <div className="tablet:px-6 my-6 flex w-full flex-row justify-start px-12 sm:px-6">
               <div>
