@@ -7,7 +7,7 @@ export const ReactHooks = (props: any) => {
 
   return (
     <div>
-      a{/* <EarthCanvas /> */}
+      {/* <EarthCanvas /> */}
       {/* <div className='flex'>
         <div className='text-red-400 text-2xl pt-2 font-mono'>React Hooks</div>
         <div>

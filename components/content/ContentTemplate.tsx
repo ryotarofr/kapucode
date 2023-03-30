@@ -3,14 +3,13 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useState } from "react";
 
 import { ContentFooter } from "./ContentFooter";
-import CodeEditor from "./MonacoEditar";
-import { SliderItems1 } from "./ReactHooks_sliderItems/index";
 import { Slider } from "./Slider";
 
-export const ReactHooks = ({ project }: { project: any }) => {
+export const Templete = ({ project }: { project: any }) => {
   const [open, setOpen] = useState(true);
   const [currentId, setCurrentId] = useState(1);
 
+  // ページ数に合わせて数字を調整
   function handleUpClick() {
     if (currentId < 3) {
       setCurrentId(currentId + 1);
@@ -27,14 +26,13 @@ export const ReactHooks = ({ project }: { project: any }) => {
   }
   return (
     <div>
-      {!open && <CodeEditor />}
-
+      {/* スライダー閉じた時のやつ */}
       <ContentFooter onOpen={() => setOpen(true)} open={open} />
-      <div className="px-2">
-        <div className="border-b font-serif text-2xl">ReactHooks</div>
-      </div>
+      <div className="border-b font-serif text-2xl">ReactHooks</div>
+
+      {/* スライダーを追加 */}
       <Slider onClose={() => setOpen(false)} open={open}>
-        {/* <div>test</div> */}
+        {/* ページ数に合わせて数字調整 */}
         <div className=" absolute bottom-3 flex items-end justify-start">
           {currentId > 1 ? (
             <>
@@ -53,10 +51,11 @@ export const ReactHooks = ({ project }: { project: any }) => {
             />
           ) : null}
         </div>
-        {/* {currentId} */}
-        {currentId == 1 && <SliderItems1 />}
-        {currentId == 2 && <div>2</div>}
-        {currentId == 3 && <div>3</div>}
+        {/* ↓コンテンツの追加 */}
+        Hello world!!
+        {currentId == 1 && <div>1ページ目</div>}
+        {currentId == 2 && <div>2ページ目</div>}
+        {currentId == 3 && <div>3ページ目</div>}
       </Slider>
     </div>
   );
