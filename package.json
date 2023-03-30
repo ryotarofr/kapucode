@@ -15,11 +15,9 @@
     "seed": "ts-node --project tsconfig.local.json ./src/db/seed.ts"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.1.11",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@mantine/carousel": "^6.0.4",
-    "@mantine/core": "^6.0.4",
-    "@mantine/hooks": "^6.0.4",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",
     "@reduxjs/toolkit": "^1.9.3",
