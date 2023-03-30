@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     theme: {
       borderWidth: {
+        0: "0.5px",
         DEFAULT: "0.5px",
       },
       container: {
@@ -17,36 +18,34 @@ module.exports = {
       },
       extend: {},
       fontFamily: {
-        ProximaBold: ["ProximaNova Bold"],
-        ProximaRegular: ["ProximaNova Regular"],
+        apple: ["San Francisco"],
+        poppins: ["Poppins"],
+        proxima: ["Proxima Nova"],
       },
       future: {
         hoverOnlyWhenSupported: true,
       },
       screens: {
-        desktop: {
-          min: "1280px",
-        },
-        laptop: {
-          max: "1280px",
-          min: "874px",
-        },
-        lg: "1024px", // ここは追加
-        md: "768px", // ここは追加
-        "mini-laptop": {
-          max: "874px",
-          min: "750px",
-        },
-        mobile: {
-          max: "550px",
-          min: "100px",
-        },
-        sm: "640px", // ここを変更
-        tablet: {
-          max: "750px",
-          min: "550px",
-        },
-        xl: "1280px", // ここは追加
+        // => @media (min-width: 1280px) { ... }
+        "2xl": "1536px",
+
+        // => @media (min-width: 768px) { ... }
+        lg: "1025px",
+
+        // => @media (min-width: 640px) { ... }
+        md: "768px",
+
+        // "c-laptop": { max: "1080px", min: "880px" },
+        // desktop: { min: "1500px" },
+        // laptop: { max: "1900px", min: "874px" },
+        // "mini-laptop": { max: "874px", min: "750px" },
+        // mobile: { max: "500px", min: "100px" },
+        // tablet: { max: "750px", min: "500px" },
+        sm: "640px",
+
+        // => @media (min-width: 1024px) { ... }
+        xl: "1280px",
+        // => @media (min-width: 1536px) { ... }
       },
     },
   },
