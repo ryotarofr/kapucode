@@ -15,7 +15,7 @@ const textUpAnimate = {
 function AllProjects() {
   return (
     <motion.div
-      className="bg-fill  bg-[url('/daniel-huniewicz-iQaFCjuMTfo-unsplash.webp')] bg-cover bg-no-repeat"
+      className="bg-fill  bg-[url('/bg1.jpeg')] bg-cover bg-no-repeat"
       id="projects"
       initial={"offscreen"}
       transition={{ staggerChildren: 0.5 }}
