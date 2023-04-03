@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const SliderItems1 = () => {
+export const SliderItem1 = () => {
   return (
     <div className="flex h-full w-full items-center justify-center">
       <div>
@@ -42,6 +42,6 @@ export const SliderItems1 = () => {
   );
 };
 
-export const SliderItems2 = () => {
+export const SliderItem2 = () => {
   return <div></div>;
 };

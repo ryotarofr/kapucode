@@ -2,7 +2,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useState } from "react";
 
-import { ContentFooter } from "./ContentFooter";
+import { ContentNav } from "./ContentNav";
 import { Slider } from "./Slider";
 
 export const Templete = ({ project }: { project: any }) => {
@@ -27,7 +27,7 @@ export const Templete = ({ project }: { project: any }) => {
   return (
     <div>
       {/* スライダー閉じた時のやつ */}
-      <ContentFooter onOpen={() => setOpen(true)} open={open} />
+      <ContentNav onOpen={() => setOpen(true)} open={open} />
       <div className="border-b font-serif text-2xl">ReactHooks</div>
 
       {/* スライダーを追加 */}

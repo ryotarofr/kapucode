@@ -8,6 +8,7 @@ import { AuthProvider } from "../hooks/useAuth";
 
 import type { AppProps } from "next/app";
 
+// Reduxストア
 const store = configureStore({
   reducer: {
     booleanValue: postsBoolReducer,

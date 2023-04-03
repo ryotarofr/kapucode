@@ -25,7 +25,7 @@ function Project({ project }: { project: any }) {
     <div>
       <div className="h-screen overflow-y-hidden">
         <div
-          className="font-poppins w-screen border-b-[0.5px]  border-gray-300 py-2.5 px-4
+          className="font-poppins w-screen border-b-[0.5px]  border-gray-300 px-4
                text-xl font-bold  "
         >
           <div
@@ -63,7 +63,7 @@ function Project({ project }: { project: any }) {
           >
             <div className="flex justify-center">{/* <Slider images={project.images} /> */}</div>
 
-            <div className="tablet:px-12 mobile:px-8 mx-auto mt-6 flex max-w-3xl justify-start px-6">
+            <div className="tablet:px-12 mobile:px-8 mx-auto flex max-w-3xl justify-start px-6">
               <div>
                 {/* <b className="font-poppins">Description</b>
                 <div
@@ -76,7 +76,7 @@ function Project({ project }: { project: any }) {
               </div>
             </div>
 
-            <div className="my-6 w-full">
+            <div className="w-full">
               {/* componentを追加していく */}
               {component}
             </div>
