@@ -4,7 +4,7 @@ import Fab from "@mui/material/Fab";
 
 export const ContentNav = ({ onOpenSlider, onOpenQuest }: any) => {
   return (
-    <div className=" fixed bottom-10 mx-4">
+    <div className="mx-4 md:fixed md:bottom-10">
       {/* 問題のボタン */}
       <Fab aria-label="edit" color="secondary" onClick={onOpenQuest}>
         <MenuBookIcon className="m-5" fontSize="large" />

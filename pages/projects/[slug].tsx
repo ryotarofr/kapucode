@@ -91,13 +91,13 @@ function Project({ project }: { project: any }) {
           </div>
         </div>
       </div>
-      <footer>
+      {/* <footer>
         <div className="tablet:px-6 my-6 flex w-full flex-row justify-end px-12 sm:px-6">
           <b className="font-poppins">Created on</b>
           <p className="font-poppins ml-2">{project.date}</p>
           <div className="mb-[100px]" />
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }
