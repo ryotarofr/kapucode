@@ -40,7 +40,7 @@ function Project({ project }: { project: any }) {
             >
               <ChevronLeft />
             </div>
-            <p className="text-center">{project.name}</p>
+            <p className="py-2 text-center text-purple-700">{project.name}</p>
             <div
               className="invisible cursor-pointer rounded-md 
                 px-2 text-gray-400 hover:bg-blue-100 hover:text-gray-700"
@@ -81,16 +81,23 @@ function Project({ project }: { project: any }) {
               {component}
             </div>
             <div className="tablet:px-6 my-6 flex w-full flex-row justify-start px-12 sm:px-6">
-              <div>
+              {/* <div>
                 <b className="font-poppins">Created on</b>
                 <p className="mt-1.5 ">{project.date}</p>
-              </div>
+              </div> */}
             </div>
 
-            <div className="mb-[200px]"></div>
+            {/* <div className="mb-[100px]" /> */}
           </div>
         </div>
       </div>
+      <footer>
+        <div className="tablet:px-6 my-6 flex w-full flex-row justify-end px-12 sm:px-6">
+          <b className="font-poppins">Created on</b>
+          <p className="font-poppins ml-2">{project.date}</p>
+          <div className="mb-[100px]" />
+        </div>
+      </footer>
     </div>
   );
 }

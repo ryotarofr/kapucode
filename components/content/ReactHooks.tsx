@@ -110,9 +110,9 @@ export const ReactHooks = ({ project }: { project: any }) => {
         {/* コードエディタを追加 */}
         <TestB files={codeFile1} />
       </div>
-      <div className="px-2">
+      {/* <div className="px-2">
         <div className="border-b font-serif text-2xl">ReactHooks</div>
-      </div>
+      </div> */}
       <div className="">
         {/* スライダー追加 */}
         {/* ショートカットキー機能(buttonタグ)[⌘][Ctrl] + [b] */}
