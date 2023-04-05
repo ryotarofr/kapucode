@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { AiOutlineUser, AiFillGithub } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { RiLockPasswordLine } from "react-icons/ri";
+// import { RiLockPasswordLine } from "react-icons/ri";
 
 import useAuth from "../hooks/useAuth";
 
@@ -35,69 +35,22 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className="">
-        <div className="">
-          <div className="">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              {toggle ? <h1 className="">Sign Up</h1> : <h1 className="">Sign In</h1>}
-
-              <div className="">
-                <label className="">
-                  <AiOutlineUser className="" />
-                  <input
-                    className=""
-                    placeholder="Email"
-                    type="email"
-                    {...register("email", { required: true })}
-                  />
-
-                  {errors.email && <p className="">正しいメールアドレスを入力してください。</p>}
-                </label>
-                <label className="{styles.label}">
-                  <RiLockPasswordLine className="{styles.bx}" />
-                  <input
-                    className=""
-                    placeholder="password"
-                    type="password"
-                    {...register("password", { required: true })}
-                  />
-
-                  {errors.password && (
-                    <p className="">パスワードは 6 ～ 60 文字である必要があります。</p>
-                  )}
-                </label>
-                {toggle ? (
-                  <>
-                    <button className="" onClick={() => setLogin(false)}>
-                      signup
-                    </button>
-                    <div className="">
-                      すでにアカウントをお持ちの方:
-                      <a className="" onClick={toggleBool}>
-                        signin
-                      </a>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <button className="" onClick={() => setLogin(true)}>
-                      signin
-                    </button>
-                    <div className="">
-                      アカウントをお持ちでない方:
-                      <a className="" onClick={toggleBool}>
-                        signup now
-                      </a>
-                    </div>
-                  </>
-                )}
-              </div>
-            </form>
-            {/* <div className={styles.h1}>Sign In</div> */}
-            <AiFillGithub className="" onClick={signInWithGithub} />
-            <FcGoogle className="" onClick={signInWithGoogle} />
-            {/* <LoginButton className={styles.providerButton} type="button" onClick={signInWithGithub}><AiFillGithub onClick={signInWithGithub} /></LoginButton> */}
-            {/* <LoginButton type="button" onClick={logout}>ログアウト</LoginButton> */}
+      <div className="flex h-[100vh] items-center justify-center">
+        <div>
+          <div className="my-10 text-center text-4xl text-purple-800">Login</div>
+          <div
+            className="mb-4 flex cursor-pointer rounded-full border px-8 py-4 text-lg"
+            onClick={signInWithGithub}
+          >
+            <AiFillGithub className=" relative mr-4 text-[30px]" />
+            <p className="">sign in with Github</p>
+          </div>
+          <div
+            className="flex cursor-pointer rounded-full border px-8 py-4 text-lg"
+            onClick={signInWithGoogle}
+          >
+            <FcGoogle className="relative mr-4 text-[30px]" />
+            <p>sign in with Google</p>
           </div>
         </div>
       </div>

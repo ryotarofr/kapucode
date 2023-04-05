@@ -21,12 +21,12 @@ const Home: NextPage = () => {
 
   const { user, logout, loading } = useAuth();
 
-  console.log(user);
+  // console.log(user);
 
   const subscription = useSubscription(user);
   if (loading || subscription === null) return null;
 
-  if (!subscription) return <div className="text-red-600">サブスク登録必要</div>;
+  // if (!subscription) return <div className="text-red-600">サブスク登録必要</div>;
 
   return (
     <div className="">
