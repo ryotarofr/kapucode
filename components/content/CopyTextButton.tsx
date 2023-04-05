@@ -2,7 +2,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { a11yLight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 // codeBlockの実装
 type CopyTextProps = {
@@ -24,9 +24,9 @@ export const CopyTextButton = ({ text, dir }: CopyTextProps) => {
 
   return (
     <div>
-      <div className="grid bg-gray-500">
-        <div className="overflow-hidden rounded-md bg-[#3a404d]">
-          <div className="flex items-center justify-between px-4 text-xs text-white">
+      <div className="grid bg-purple-400">
+        <div className="overflow-hidden rounded-md bg-purple-400">
+          <div className="flex items-center justify-between px-4 text-xs text-purple-900">
             <p className="text-sm">{dir}</p>
             {/* コピーアイコン */}
             <Tooltip arrow placement="top" title="Copy to Clipboard">
@@ -40,7 +40,7 @@ export const CopyTextButton = ({ text, dir }: CopyTextProps) => {
               padding: "10px",
             }}
             language="jsx"
-            style={atomOneDark}
+            style={a11yLight}
             wrapLongLines={false}
           >
             {text}
