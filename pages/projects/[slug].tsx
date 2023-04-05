@@ -25,7 +25,7 @@ function Project({ project }: { project: any }) {
     <div>
       <div className="h-screen overflow-y-hidden">
         <div
-          className="font-poppins w-screen border-b-[0.5px]  border-gray-300 px-4
+          className="font-poppins w-screen border-b-[0.5px] border-gray-300 px-4
                text-xl font-bold  "
         >
           <div

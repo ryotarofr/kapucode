@@ -1,4 +1,9 @@
 export const codeFile1 = {
+  "/Home.modules.css": {
+    code: `.text{
+color: red
+    }`,
+  },
   "/Quest1.js": {
     code: `// reactからuseStateをimportしよう
 
@@ -39,118 +44,95 @@ import { useState } from 'react';
   );
 }`,
   },
+  "pages/index.js": {
+    code: `import { useState } from "react";
+import { Quest1 } from ".././Quest1";
+import { Quest1Ans } from ".././Quest1Ans";
+export default function Home({ data }) {
+  const [open, setOpen] = useState(false)
+      return (
+        <>
+          <h1>{data}</h1>
+          {/* Quest1をを表示させよう */} 
+       
+          {open ? <h2 onClick={() => setOpen(false)}>答えを非表示</h2> : <h2 onClick={() => setOpen(true)}>答えを表示</h2> }
+          {open && <Quest1Ans />}
+        </>
+      );
+    }
+      
+    export function getServerSideProps() {
+      return {
+        props: { data: "プレビュー" },
+      }
+    }
+    `,
+  },
+};
+
+export const codeFile2 = {
   "/Quest2.js": {
-    code: `// reactからuseStateをimportしよう
-import { useState } from 'react';
-  export function Quest1() {
-    // useStateを使ってみよう
-    const [count, setCount] = useState(0);
-    // カウントアップ関数をつくってみよう
-    function handleClick() {
-      // stateを+1させて更新させよう
-      setCount(count + 1);
+    code: `// hooksをimport
+import { useState } from 'react';    
+export function Quest2Ans() {
+  const [count, setCount] = useState(0);
+  const [isEven, setIsEven] = useState(false);
+        
+  // useEffectを定義し3の倍数でcountを更新するstateを作ってください
+        
+  function handleIncrement() {
+    setCount((prevCount) => prevCount + 1);
   }
-    
+        
   return (
     <div>
       <p>Count: {count}</p>
-        <button onClick={handleClick}>Increment</button>
+      <p>コンポーネントを更新: {isEven ? 'Yes' : 'No'}</p>
+      <button onClick={handleIncrement}>Increment Count</button>
     </div>
   );
 }`,
   },
-  "/Quest3.js": {
-    code: `// reactからuseStateをimportしよう
-import { useState } from 'react';
-  export function Quest1() {
-    // useStateを使ってみよう
-    const [count, setCount] = useState(0);
-    // カウントアップ関数をつくってみよう
-    function handleClick() {
-      // stateを+1させて更新させよう
-      setCount(count + 1);
+  "/Quest2Ans.js": {
+    code: `// hooksをimport
+import { useState, useEffect } from 'react';
+
+export function Quest2Ans() {
+  const [count, setCount] = useState(0);
+  const [isEven, setIsEven] = useState(false);
+    
+  // useEffectを定義しcountが3の倍数であるときisEvenを更新するstateを作ってください
+  useEffect(() => {
+    setIsEven(count % 3 === 0);
+  }, [count]);
+    
+  function handleIncrement() {
+    setCount((prevCount) => prevCount + 1);
   }
     
   return (
     <div>
       <p>Count: {count}</p>
-        <button onClick={handleClick}>Increment</button>
-    </div>
-  );
-}`,
-  },
-  "/Quest4.js": {
-    code: `// reactからuseStateをimportしよう
-import { useState } from 'react';
-  export function Quest1() {
-    // useStateを使ってみよう
-    const [count, setCount] = useState(0);
-    // カウントアップ関数をつくってみよう
-    function handleClick() {
-      // stateを+1させて更新させよう
-      setCount(count + 1);
-  }
-    
-  return (
-    <div>
-      <p>Count: {count}</p>
-        <button onClick={handleClick}>Increment</button>
-    </div>
-  );
-}`,
-  },
-  "/Quest5.js": {
-    code: `// reactからuseStateをimportしよう
-import { useState } from 'react';
-  export function Quest1() {
-    // useStateを使ってみよう
-    const [count, setCount] = useState(0);
-    // カウントアップ関数をつくってみよう
-    function handleClick() {
-      // stateを+1させて更新させよう
-      setCount(count + 1);
-  }
-    
-  return (
-    <div>
-      <p>Count: {count}</p>
-        <button onClick={handleClick}>Increment</button>
+      <p>コンポーネントを更新: {isEven ? 'Yes' : 'No'}</p>
+      <button onClick={handleIncrement}>Increment Count</button>
     </div>
   );
 }`,
   },
   "pages/index.js": {
-    code: `import { Quest1 } from ".././Quest1";
-import { Quest1Ans } from ".././Quest1Ans";
+    code: `import { useState } from "react";
+import { Quest2 } from ".././Quest2";
+import { Quest2Ans } from ".././Quest2Ans";
 export default function Home({ data }) {
+  const [open, setOpen] = useState(false)
       return (
-        <div>
+        <>
           <h1>{data}</h1>
-          {/* コメントアウトを解除してください  mac:[⌘]+[/]  windows:[Ctrl]+[/] */}
-          <h2>Quest1</h2>
-          {/* <Quest1 /> */}
-          <h2>Quest2</h2>
-          {/* <Quest2 /> */}
-          <h2>Quest3</h2>
-          {/* <Quest3 /> */}
-          <h2>Quest4</h2>
-          {/* <Quest4 /> */}
-          <h2>Quest5</h2>
-          {/* <Quest5 /> */}
-
-    
-          <h2>Answer1</h2>
-          {/* <Quest1Ans /> */}
-          <h2>Answer2</h2>
-          {/* <Quest2Ans /> */}
-          <h2>Answer3</h2>
-          {/* <Quest3Ans /> */}
-          <h2>Answer4</h2>
-          {/* <Quest4Ans /> */}
-          <h2>Answer5</h2>
-          {/* <Quest5Ans /> */}
-          {/*  */}
-        </div>
+          {/* Quest2をを表示 */} 
+       
+          {open ? <h2 onClick={() => setOpen(false)}>答えを非表示</h2> : <h2 onClick={() => setOpen(true)}>答えを表示</h2> }
+          {open && <Quest2Ans />}
+        </>
       );
     }
       

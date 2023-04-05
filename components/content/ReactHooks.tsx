@@ -1,14 +1,17 @@
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import hotkeys from "hotkeys-js";
 import { useEffect, useRef, useState } from "react";
 
-import { codeFile1 } from "../../data/codefiles";
+import { codeFile1, codeFile2 } from "../../data/codefiles";
+import { codeVisibleFile1, codeVisibleFile2 } from "../../data/codevisiblefiles";
 
 import { ContentNav } from "./ContentNav";
-import { TestB } from "./MonacoEditar";
+import { CodeEditor } from "./MonacoEditar";
 import { Quest } from "./Quest";
-import { QuestItem1 } from "./ReactHooks_questItems";
+import { QuestItem1, QuestItem2 } from "./ReactHooks_questItems";
 import { SliderItem1 } from "./ReactHooks_sliderItems/index";
 import { Slider } from "./Slider";
 
@@ -17,6 +20,8 @@ export const ReactHooks = ({ project }: { project: any }) => {
   const [openQuest, setOpenQuest] = useState(false);
   const [currentSliderId, setCurrentSliderId] = useState(1);
   const [currentQuestId, setCurrentQuestId] = useState(1);
+  const [closeSidebar, setCloseSidebar] = useState(false);
+  const [lessonIndex, setLessonIndex] = useState(1);
 
   function handleUpSlider() {
     if (currentSliderId < 3) {
@@ -96,23 +101,69 @@ export const ReactHooks = ({ project }: { project: any }) => {
     });
   }, []);
 
+  let lessonCode: any;
+  let lessonDesc: any;
+  switch (lessonIndex) {
+    case 1:
+      lessonCode = <CodeEditor files={codeFile1} visibleFliles={codeVisibleFile1} />;
+      lessonDesc = <QuestItem1 />;
+      break;
+    case 2:
+      lessonCode = <CodeEditor files={codeFile2} visibleFliles={codeVisibleFile2} />;
+      lessonDesc = <QuestItem2 />;
+      break;
+    default:
+      //いずれも一致しなかった場合;
+      break;
+  }
+
   return (
     <div>
       {/* UIのz-indexバグの対策 */}
       <div className={`${!openSlider && !openQuest ? "" : "hidden"}`}>
+        <div className="flex flex-row">
+          {/* 開発手順のサイドバー */}
+          <div className={`h-[85vh] bg-purple-50 ${!closeSidebar ? "w-[26vw]" : "w-[4vw]"}`}>
+            {!closeSidebar ? (
+              <>
+                <div className="flex w-full items-center justify-between border-b py-2 text-lg text-purple-800">
+                  <MenuBookIcon className="mx-2" color="secondary" fontSize="medium" />
+                  Doc
+                  <MenuOpenIcon
+                    className="mx-2"
+                    color="secondary"
+                    fontSize="large"
+                    onClick={() => setCloseSidebar(!closeSidebar)}
+                  />
+                </div>
+                <div className="px-6">{lessonDesc}</div>
+              </>
+            ) : (
+              <div className="my-2 flex justify-center">
+                <MenuOpenIcon
+                  className="mx-2"
+                  color="secondary"
+                  fontSize="large"
+                  onClick={() => setCloseSidebar(!closeSidebar)}
+                />
+              </div>
+            )}
+          </div>
+          <div className={`${!closeSidebar ? "w-[74vw]" : "w-[96vw]"}`}>
+            {/* コードエディタを追加 */}
+            {lessonCode}
+          </div>
+        </div>
         {/* button UI */}
         <ContentNav
+          lessonIndex={lessonIndex}
+          nemberOfLessons={project.nemberOfLessons}
+          onBackLesson={() => setLessonIndex(lessonIndex - 1)}
+          onNextLesson={() => setLessonIndex(lessonIndex + 1)}
           onOpenQuest={() => setOpenQuest(true)}
           onOpenSlider={() => setOpenSlider(true)}
-          openQuest={openQuest}
-          openSlider={openSlider}
         />
-        {/* コードエディタを追加 */}
-        <TestB files={codeFile1} />
       </div>
-      {/* <div className="px-2">
-        <div className="border-b font-serif text-2xl">ReactHooks</div>
-      </div> */}
       <div className="">
         {/* スライダー追加 */}
         {/* ショートカットキー機能(buttonタグ)[⌘][Ctrl] + [b] */}
@@ -144,8 +195,16 @@ export const ReactHooks = ({ project }: { project: any }) => {
 
           {/* ページごとのコンテンツ */}
           {currentSliderId == 1 && <SliderItem1 />}
-          {currentSliderId == 2 && <div>2</div>}
-          {currentSliderId == 3 && <div>3</div>}
+          {currentSliderId == 2 && (
+            <div className="flex h-[200px] items-center justify-center text-xl">
+              製作中です。もうしばらくお待ちください🙇‍♂️
+            </div>
+          )}
+          {currentSliderId == 3 && (
+            <div className="flex h-[200px] items-center justify-center text-xl">
+              製作中です。もうしばらくお待ちください🙇‍♂️
+            </div>
+          )}
         </Slider>
 
         {/* クエストを追加 */}
@@ -178,8 +237,12 @@ export const ReactHooks = ({ project }: { project: any }) => {
 
           {/* ページごとのコンテンツ */}
           {currentQuestId == 1 && <QuestItem1 />}
-          {currentQuestId == 2 && <div>2</div>}
-          {currentQuestId == 3 && <div>3</div>}
+          {currentQuestId == 2 && <QuestItem2 />}
+          {currentQuestId == 3 && (
+            <div className="flex h-[200px] items-center justify-center text-xl">
+              製作中です。もうしばらくお待ちください🙇‍♂️
+            </div>
+          )}
         </Quest>
       </div>
     </div>

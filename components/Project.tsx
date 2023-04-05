@@ -72,8 +72,8 @@ function ProjectComponent(props: any) {
           <div className="flex flex-row items-center justify-around pt-2.5">
             <Link href={`/projects/${project.slug.toLowerCase()}`}>
               <motion.p
-                className=" border-b-[1px] border-purple-500 text-[18px]
-           uppercase text-gray-700 hover:border-gray-900 hover:text-purple-600"
+                className="invisible border-b-[1px] border-purple-500 text-[18px] uppercase
+           text-gray-700 hover:border-gray-900 hover:text-purple-600 lg:visible"
                 whileHover={{}}
               >
                 Read More

@@ -10,7 +10,7 @@ export const SliderItem1 = () => {
       lg:my-10 
       lg:text-5xl"
         >
-          React/TypeScriptを学ぼう
+          Next.jsを学ぼう!!!
         </h1>
         <div
           className="
@@ -18,9 +18,7 @@ export const SliderItem1 = () => {
       text-center lg:pt-8
        lg:text-lg"
         >
-          <h2>
-            このセクションでは、React/TypeScriptの基本的なコードの書き方について学んでいきます。
-          </h2>
+          <h2>このセクションでは、Next.jsの基本的なコードの書き方について学んでいきます。</h2>
           <h2>1つ1つ丁寧に解説していきますので最後まで頑張っていきましょう!</h2>
         </div>
         <div className="flex h-[50%] items-center justify-center">
