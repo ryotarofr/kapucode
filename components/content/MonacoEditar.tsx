@@ -90,15 +90,28 @@ type Files = {
   files: any;
 };
 
-export const TestB = ({ files }: Files) => (
-  <SandpackProvider files={files} template="nextjs" theme={amethyst}>
-    <SandpackLayout>
-      {/* <SandpackFileExplorer /> */}
-      <SandpackCodeEditor style={{ height: "80vh" }} />
-      <SandpackPreview style={{ height: "80vh" }} />
-    </SandpackLayout>
-  </SandpackProvider>
-);
+export const TestB = ({ files }: Files) => {
+  return (
+    <SandpackProvider
+      files={files}
+      options={{
+        // activeFile: "/index.js",
+        externalResources: ["https://cdn.tailwindcss.com"],
+        visibleFiles: ["/Quest1Ans.js", "/index.js", "_app.js", "/Quest1.js"],
+      }}
+      template="nextjs"
+      theme={amethyst}
+    >
+      <SandpackLayout>
+        {/* <SandpackFileExplorer style={{ height: "85vh" }} /> */}
+        <SandpackCodeEditor style={{ height: "85vh" }} />
+
+        <SandpackPreview style={{ height: "85vh" }} />
+        {/* <SandpackConsole style={{ height: "85vh" }} /> */}
+      </SandpackLayout>
+    </SandpackProvider>
+  );
+};
 
 export function TestEditor() {
   const [files, setFiles] = useState({
