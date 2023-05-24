@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import AllProjects from "../components/AllProjects";
 import { Header } from "../components/Header";
+import { Contents, Intro } from "../components/intro";
 import useAuth from "../hooks/useAuth";
 import useSubscription from "../hooks/useSubscription";
 // import payments from "../lib/stripe";
@@ -31,6 +32,8 @@ const Home: NextPage = () => {
   return (
     <div className="">
       <Header />
+      <Intro />
+      <Contents />
       <AllProjects />
     </div>
   );

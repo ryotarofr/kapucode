@@ -17,7 +17,7 @@ export const Header = () => {
         {/* Itemを追加 */}
         {/* </ul> */}
         <Stack className="tablet:px-8 mobile:px-4 px-14" direction="row" spacing={2}>
-          <Button color="secondary" href="/login">
+          <Button color="secondary" href="/login" variant="outlined">
             Logout
           </Button>
         </Stack>
