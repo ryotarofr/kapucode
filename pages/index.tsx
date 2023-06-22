@@ -1,22 +1,29 @@
-"use client";
-
 import { Product } from "@stripe/firestore-stripe-payments";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import AllProjects from "../components/AllProjects";
 import { Header } from "../components/Header";
-import { Contents, Intro } from "../components/intro";
+import { Info } from "../components/Info";
+import { Intro } from "../components/intro";
+import { Contents } from "../components/mdx/Post";
 import useAuth from "../hooks/useAuth";
 import useSubscription from "../hooks/useSubscription";
 // import payments from "../lib/stripe";
+import { getAllPosts } from "../lib/api";
+import { PostType } from "../types/post";
 
-import type { NextPage } from "next";
+import type { GetStaticProps } from "next";
 
 interface Props {
   products: Product[];
 }
 
-const Home: NextPage = () => {
+// add mdx posttype
+type IndexProps = {
+  posts: PostType[];
+};
+
+const Home = ({ posts }: IndexProps) => {
   const [pageToggle, setPageToggle] = useState<Boolean>(false);
   const toggleBool = () => setPageToggle(!pageToggle);
 
@@ -33,7 +40,29 @@ const Home: NextPage = () => {
     <div className="">
       <Header />
       <Intro />
-      <Contents />
+      <Info />
+      {/* view mdx all posts 多分消す */}
+      {/* {posts.map((post) => (
+        <article className="mt-12" key={post.slug}>
+          <p className="mb-1 text-sm text-gray-500 dark:text-gray-400">
+            {format(parseISO(post.date), 'MMMM dd, yyyy')}
+          </p>
+          <h1 className="mb-2 text-xl">
+            <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
+              <div className="text-gray-900 dark:text-white dark:hover:text-blue-400">
+                {post.title}
+              </div>
+            </Link>
+          </h1>
+          <p className="mb-3">{post.description}</p>
+          <p>
+            <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
+              <div>Read More</div>
+            </Link>
+          </p>
+        </article>
+      ))} */}
+      <Contents posts={posts} />
       <AllProjects />
     </div>
   );
@@ -55,3 +84,12 @@ export default Home;
 //     },
 //   }
 // }
+
+// get mdx
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getAllPosts(["date", "description", "slug", "title", "image"]);
+
+  return {
+    props: { posts },
+  };
+};

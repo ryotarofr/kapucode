@@ -16,7 +16,7 @@ const store = configureStore({
   },
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <AuthProvider>
       <Provider store={store}>

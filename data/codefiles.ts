@@ -1,5 +1,5 @@
 export const codeFile1 = {
-  "/Home.modules.css": {
+  "/Home.module.css": {
     code: `.text{
 color: red
     }`,
@@ -46,13 +46,14 @@ import { useState } from 'react';
   },
   "pages/index.js": {
     code: `import { useState } from "react";
+import styles from ".././Home.module.css";
 import { Quest1 } from ".././Quest1";
 import { Quest1Ans } from ".././Quest1Ans";
 export default function Home({ data }) {
   const [open, setOpen] = useState(false)
       return (
         <>
-          <h1>{data}</h1>
+          <h1 className={styles.text}>{data}</h1>
           {/* Quest1をを表示させよう */} 
        
           {open ? <h2 onClick={() => setOpen(false)}>答えを非表示</h2> : <h2 onClick={() => setOpen(true)}>答えを表示</h2> }
